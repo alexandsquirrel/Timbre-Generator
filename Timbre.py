@@ -32,6 +32,8 @@ def output_tone(input, output):
         os.system('wave %s %f 5' % (file_name, freq))
         os.rename('wave.wav', '%d.wav' % i)
         freq *= FREQ_INCR_RATIO
+    if not os.path.exists("./timbre"):
+        os.mkdir("timbre")
     os.system('Converter ./timbre/' + output + ".tone")
     for i in range(88):
         os.remove("%d.wav" % i)
